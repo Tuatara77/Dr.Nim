@@ -60,4 +60,34 @@ async def userinfo(ctx, member: discord.Member=None):
         em.add_field(name='Roles:', value=','.join(r.name if r.name == '@everyone' else r.mention for r in sorted(member.roles, key=str)), inline=False)
         await ctx.send(embed=em)
 
+@bot.command()
+async def serverinfo(ctx):
+    def role():
+        roles = sorted(ctx.guild.roles, key=str)
+        roles =[str(role.mention) for role in roles]
+        roles_str = ', '.join(r.name if r.name == '@everyone' else r.mention for r in sorted(guild.roles, key=str))
+        if len(roles_str) > 1023:
+            print("Too many characters")
+            return len(guild.roles)
+        else:
+            print("Space enough!")
+            return roles_str
+
+    guild = ctx.guild
+    serverdate = guild.created_at.strftime("%x at %X")
+    bots = len({m for m in guild.members if m.bot})
+    everyone = len(guild.members)
+    humans = everyone - bots
+    em = discord.Embed(title=guild.name, colour=0xc0ffee)
+    em.set_thumbnail(url=guild.icon_url)
+    em.add_field(name='Server Name', value=guild.name)
+    em.add_field(name='Server Owner:', value=guild.owner)
+    em.add_field(name='Server Region', value=guild.region)
+    em.add_field(name='Server Created:', value=serverdate)
+    em.add_field(name='Members:', value=guild.member_count, inline=False)
+    em.add_field(name='Humans:', value=humans)
+    em.add_field(name='Bots:', value=bots)
+    em.add_field(name='Roles:', value=role(), inline=False)
+    await ctx.send(embed=em)
+
 bot.run(os.environ['TOKEN'])
