@@ -1,5 +1,6 @@
 import discord
 import logging
+import time
 import os
 from discord.ext import commands
 
