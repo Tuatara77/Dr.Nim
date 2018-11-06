@@ -102,13 +102,13 @@ async def ping(ctx):
 async def purge(ctx, amount: int=None):
     if amount is None:
         await ctx.channel.purge(limit=2)
-        await ctx.send(f"{amount} messages deleted successfully", delete_after = 5)
+        await ctx.send(f"1 message deleted", delete_after = 5)
     elif amount > 100:
         await ctx.send(f"the limit of messages I can delete at one time is 100.", delete_after = 5)
     else:
         clear = amount +1
         await ctx.channel.purge(limit=clear)
-        await ctx.send(f"{amount} messages deleted successfully", delete_after = 5)
+        await ctx.send(f"{amount} messages deleted", delete_after = 5)
 
 
 bot.run(os.environ['TOKEN'])
