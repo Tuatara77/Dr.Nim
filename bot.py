@@ -14,7 +14,7 @@ setattr(bot, "logger", logger)
 @bot.event
 async def on_ready():
     print("On standby, Master")
-    await bot.change_presence(activity=discord.Game(name="being programmed by Tuatara_77"))
+    await bot.change_presence(activity=discord.Game(name="Science enperiments"))
 
 @bot.command()
 async def say(ctx, *, words):
@@ -98,6 +98,16 @@ async def ping(ctx):
     ping = ctx.bot.latency * 1000
     await msg.edit(content=f"Ping: ``{ping:,.2f}ms``")
 
-    
+@bot.command()
+async def purge(ctx, ammount: int=None)
+if ammount is None:
+    await ctx.channel.purge(limit=2)
+    await ctx.send(f"{amount} messages deleted successfully", delete_after = 5)
+elif amount > 100:
+    await ctx.send(f"the limit of messages i can delete at one time is 100.", delete_after = 5)
+else:
+    clear = amount +1
+    await ctx.channel.purge(limit=clear)
+    await ctx.send(f"{amount} messages deleted successfully", delete_after = 5)
 
 bot.run(os.environ['TOKEN'])
