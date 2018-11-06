@@ -99,7 +99,7 @@ async def ping(ctx):
     await msg.edit(content=f"Ping: ``{ping:,.2f}ms``")
 
 @bot.command()
-async def purge(ctx, ammount: int=None):
+async def purge(ctx, amount: int=None):
     if amount is None:
         await ctx.channel.purge(limit=2)
         await ctx.send(f"{amount} messages deleted successfully", delete_after = 5)
