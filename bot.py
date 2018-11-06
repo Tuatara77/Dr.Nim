@@ -90,5 +90,14 @@ async def serverinfo(ctx):
     em.add_field(name='Bots:', value=bots)
     em.add_field(name='Roles:', value=role(), inline=False)
     await ctx.send(embed=em)
+   
+@bot.command()
+async def ping(ctx):
+    start = time.monotonic()
+    msg = await ctx.send("ping")
+    ping = ctx.bot.latency * 1000
+    await msg.edit(content=f"Ping: ``{ping:,.2f}ms``")
+
+    
 
 bot.run(os.environ['TOKEN'])
