@@ -8,7 +8,7 @@ from discord.ext import commands
 
 @bot.event()
 async def on_ready():
-	extensions = ["nimbot"]
+    extensions = ["nimbot"]
 
 	bot = commands.Bot(description=' ', command_prefix=commands.when_mentioned_or(";"), pm_help=False)
 
