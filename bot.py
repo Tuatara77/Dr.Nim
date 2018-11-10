@@ -14,7 +14,7 @@ async def on_ready():
 
 	for extension in extensions:
     	try:
-       	    bot.load_extension(extension)
+            bot.load_extension(extension)
     	except Exception as e:
             logging.error(f"Failed to load '{extension}' with the following error: \n{traceback.format_exc()}")
 
