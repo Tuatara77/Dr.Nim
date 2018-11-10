@@ -2,7 +2,18 @@ import discord
 import logging
 import time
 import os
+import traceback
 from discord.ext import commands
+
+extensions = ["nimbot"]
+
+bot = commands.Bot(description=' ', command_prefix=commands.when_mentioned_or(";"), pm_help=False)
+
+for extension in extensions:
+    try:
+        bot.load_extension(extension)
+    except Exception as e:
+        logging.error(f"Failed to load '{extension}' with the following error: \n{traceback.format_exc()}")
 
 logging.basicConfig(level='INFO')
 logger = logging.getLogger('Logs')
@@ -15,11 +26,6 @@ setattr(bot, "logger", logger)
 async def on_ready():
     print("On standby, Master")
     await bot.change_presence(activity=discord.Game(name="Science enperiments"))
-
-@bot.command()
-async def say(ctx, *, words):
-    await ctx.message.delete()
-    await ctx.send(f"{words}")
 
 @bot.command()
 async def userinfo(ctx, member: discord.Member=None):
@@ -97,18 +103,6 @@ async def ping(ctx):
     msg = await ctx.send("ping")
     ping = ctx.bot.latency * 1000
     await msg.edit(content=f"Ping: ``{ping:,.2f}ms``")
-
-@bot.command()
-async def purge(ctx, amount: int=None):
-    if amount is None:
-        await ctx.channel.purge(limit=2)
-        await ctx.send(f"1 message deleted", delete_after = 5)
-    elif amount > 100:
-        await ctx.send(f"the limit of messages I can delete at one time is 100.", delete_after = 5)
-    else:
-        clear = amount +1
-        await ctx.channel.purge(limit=clear)
-        await ctx.send(f"{amount} messages deleted", delete_after = 5)
 
 
 bot.run(os.environ['TOKEN'])
