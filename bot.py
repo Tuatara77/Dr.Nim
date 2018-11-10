@@ -10,10 +10,8 @@ from discord.ext import commands
 async def on_ready():
     extensions = ["nimbot"]
 
-	bot = commands.Bot(description=' ', command_prefix=commands.when_mentioned_or(";"), pm_help=False)
-
 	for extension in extensions:
-    	try:
+        try:
             bot.load_extension(extension)
     	except Exception as e:
             logging.error(f"Failed to load '{extension}' with the following error: \n{traceback.format_exc()}")
