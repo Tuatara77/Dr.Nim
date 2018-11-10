@@ -9,7 +9,8 @@ class Mod:
         guild = ctx.guild
         role1 = discord.utils.get(guild.roles, id=451412255129468939)
         role2 = discord.utils.get(guild.roles, id=506132822927474704)
-        if role1 in ctx.author.roles or role2 in ctx.author.roles:
+        role3 = discord.utils.get(guild.roles, id=508636962903818251)
+        if role1 in ctx.author.roles or role2 in ctx.author.roles or role3 in ctx.author.roles:
             return True
         else:
             return False
