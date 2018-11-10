@@ -5,16 +5,13 @@ import os
 import traceback
 from discord.ext import commands
 
+extensions = ["nimbot"]
 
-@bot.event()
-async def on_ready():
-    extensions = ["nimbot"]
-
-	for extension in extensions:
-        try:
-            bot.load_extension(extension)
-    	except Exception as e:
-            logging.error(f"Failed to load '{extension}' with the following error: \n{traceback.format_exc()}")
+for extension in extensions:
+    try:
+        bot.load_extension(extension)
+    except Exception as e:
+        logging.error(f"Failed to load '{extension}' with the following error: \n{traceback.format_exc()}")
 
 
 logging.basicConfig(level='INFO')
