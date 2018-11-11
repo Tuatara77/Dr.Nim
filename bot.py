@@ -102,5 +102,12 @@ async def ping(ctx):
     ping = ctx.bot.latency * 1000
     await msg.edit(content=f"Ping: ``{ping:,.2f}ms``")
 
+@bot.command()
+async def note(ctx, *, words):
+    user = ctx.author
+    await ctx.message.delete()
+    await user.send(f'{words}')
+    await ctx.send(f"message noted", delete_after=5)
 
+    
 bot.run(os.environ['TOKEN'])
