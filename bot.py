@@ -23,7 +23,7 @@ setattr(bot, "logger", logger)
 @bot.event
 async def on_ready():
     print("On standby, Master")
-    await bot.change_presence(activity=discord.Game(name="Science enperiments"))
+    await bot.change_presence(activity=discord.Game(name="Role Hex Code: #26f43a"))
 
 @bot.command()
 async def userinfo(ctx, member: discord.Member=None):
