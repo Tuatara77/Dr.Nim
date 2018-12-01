@@ -21,7 +21,7 @@ class Help_Command:
         em = discord.Embed(title='help', colour=0xc0ffee)
         em.add_field(name="say", value=";say <words>  |  Make me say what you tell me to.", inline=False)
         em.add_field(name="purge", value=";purge <1-100>  |  Purge any amount of messages from 1 to 100.", inline=False)
-        em.add_field(name="DM", value=";dm <user> / <user id>  |  Send that, then when I say 'please type your message now' then send another message with the text you want me to send that person. Once I have done it, I will send a message saying 'Your message has been sent'.", inline=False)
+        em.add_field(name="dm", value=";dm <user> / <user id>  |  Send that, then when I say 'please type your message now' then send another message with the text you want me to send that person. Once I have done it, I will send a message saying 'Your message has been sent'.", inline=False)
         await ctx.send(embed=em)
 
 def setup(bot):
