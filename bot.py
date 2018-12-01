@@ -5,9 +5,11 @@ import os
 import traceback
 from discord.ext import commands
 
-extensions = ["nimbot"]
+extensions = ["nimbot", "helpbot"]
 
 bot = commands.Bot(description=' ', command_prefix=commands.when_mentioned_or(";"), pm_help=False)
+
+bot.remove_command('help')
 
 for extension in extensions:
     try:
