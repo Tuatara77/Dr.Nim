@@ -14,7 +14,8 @@ class Mod:
         role5 = discord.utils.get(guild.roles, id=466066309088804866) #moderator teir 2 yinyang gaming beta
         role6 = discord.utils.get(guild.roles, id=516234491795210260) #interviewing discord server new role
         role7 = discord.utils.get(guild.roles, id=499908394019323905) #server management scrap world
-        if role1 in ctx.author.roles or role2 in ctx.author.roles or role3 in ctx.author.roles or role4 in ctx.author.roles or role5 in ctx.author.roles or role6 in ctx.author.roles or role7 in ctx.author.roles:
+        role8 = discord.utils.get(guild.roles, id=451412250360545290)  #Tuatara_77 role Lodge
+        if role1 in ctx.author.roles or role2 in ctx.author.roles or role3 in ctx.author.roles or role4 in ctx.author.roles or role5 in ctx.author.roles or role6 in ctx.author.roles or role7 in ctx.author.roles or role8 in ctx.author.roles:
             return True
         else:
             return False
@@ -58,6 +59,18 @@ class Mod:
         if in_dm and is_not_from_me:
             await channel.send(f'{message.author.mention} ')
             await channel.send(message.content)
+
+    @commands.command()
+    async def addrole(self, ctx, member: discord.Member, role: discord.Role):
+        role2 = discord.utils.get(ctx.guild.roles, id=role.id)
+        await member.add_roles(role2)
+        await ctx.send ("Role added", delete_after=5)
+
+    @commands.command()
+    async def remrole(self, ctx, member: discord.Member, role: discord.Role):
+        role2 = discord.utils.get(ctx.guild.roles, id=role.id)
+        await member.remove_roles(role2)
+        await ctx.send ("Role removed", delete_after=5)
 
 def setup(bot):
     bot.add_cog(Mod(bot))
