@@ -111,5 +111,8 @@ async def note(ctx, *, words):
     await user.send(f'{words}')
     await ctx.send(f"message noted", delete_after=5)
 
-    
+@bot.command()
+async def androidlogic(ctx):
+    await ctx.send("https://cdn.discordapp.com/attachments/507857234034819072/518939636903706645/Rj3FuqF.png")
+
 bot.run(os.environ['TOKEN'])
