@@ -16,7 +16,8 @@ class Mod:
         role7 = discord.utils.get(guild.roles, id=499908394019323905) #server management scrap world
         role8 = discord.utils.get(guild.roles, id=451412250360545290) #Tuatara_77 role Lodge
         role9 = discord.utils.get(guild.roles, id=499951169809154049) #helper/mod code dungeon
-        if role1 in ctx.author.roles or role2 in ctx.author.roles or role3 in ctx.author.roles or role4 in ctx.author.roles or role5 in ctx.author.roles or role6 in ctx.author.roles or role7 in ctx.author.roles or role8 in ctx.author.roles or role9 in ctx.author.roles:
+        role10 = discord.utils.get(guild.roles, id=519612712922120208)  #Moderators role programmers paradise
+        if role1 in ctx.author.roles or role2 in ctx.author.roles or role3 in ctx.author.roles or role4 in ctx.author.roles or role5 in ctx.author.roles or role6 in ctx.author.roles or role7 in ctx.author.roles or role8 in ctx.author.roles or role9 in ctx.author.roles or role10 in ctx.author.roles:
             return True
         else:
             return False
