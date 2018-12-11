@@ -15,7 +15,11 @@ class Help_Command:
         em.add_field(name="userinfo", value=";userinfo <user> / <user id> (optional)  |  Shows you information about yourself, unless you either @mention someone or place their user id after the command.", inline=False)
         em.add_field(name="androidlogic", value=";androidlogic  |  sends a funny picture of the android logo as logic symbols", inline=False)
         em.add_field(name="Help Modules", value="<moderator>", inline=False)
+        em.add_field(name="Help Server", value="For further help, join my help server here (Dr.Nim Help Server):", inline=False)
+        em.add_field(name="Extra Help Server", value="Tuatara_77 (Bot Developer) can also be found in The Tuatara Lodge:", inline=False)
         await ctx.send(embed=em)
+        await ctx.send("https://discord.gg/RWREk5A")
+        await ctx.send("https://discord.gg/D3g3xqx")
 
     @help.group()
     async def moderator(self, ctx):
