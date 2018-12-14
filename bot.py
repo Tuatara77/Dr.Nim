@@ -5,7 +5,7 @@ import os
 import traceback
 from discord.ext import commands
 
-extensions = ["nimbot", "helpbot"]
+extensions = ["nimbot", "helpbot", "owner"]
 
 bot = commands.Bot(description=' ', command_prefix=commands.when_mentioned_or(";"), pm_help=False)
 
