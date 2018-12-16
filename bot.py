@@ -119,7 +119,7 @@ async def androidlogic(ctx):
 async def tableflip(ctx):
     await ctx.send("https://cdn.discordapp.com/attachments/507857234034819072/523953203885113346/infinite_table_flipping.gif")
 
-    @bot.command()
+@bot.command()
 async def empathybanana(ctx):
     await ctx.send("https://cdn.discordapp.com/attachments/451403821877428225/523955863086432267/empathy_banana.png")
     
