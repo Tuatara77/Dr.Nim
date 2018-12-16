@@ -115,4 +115,9 @@ async def note(ctx, *, words):
 async def androidlogic(ctx):
     await ctx.send("https://cdn.discordapp.com/attachments/507857234034819072/518939636903706645/Rj3FuqF.png")
 
+@bot.command()
+async def tableflip(ctx):
+    await ctx.send("https://cdn.discordapp.com/attachments/507857234034819072/523953203885113346/infinite_table_flipping.gif")
+
+    
 bot.run(os.environ['TOKEN'])
