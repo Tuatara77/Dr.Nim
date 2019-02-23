@@ -39,7 +39,7 @@ class Mod:
            await ctx.send(f"{amount} messages deleted", delete_after=5)
 
     @commands.command()
-    async def dm(self, ctx, user: discord.Member = None):
+    async def dmf(self, ctx, user: discord.Member = None):
         if user is None:
             await ctx.send("Please insert the name of a user you want me to dm.")
         else:
@@ -61,6 +61,11 @@ class Mod:
             await channel.send(f'{message.author.mention} ')
             await channel.send(message.content)
 
+    @commands.command()
+    async def dm(self, ctx, user: discord.Member, *, message):
+        await user.send(message)
+        await ctx.send("message sent")
+            
     @commands.command()
     async def addrole(self, ctx, member: discord.Member, role: discord.Role):
         role2 = discord.utils.get(ctx.guild.roles, id=role.id)
